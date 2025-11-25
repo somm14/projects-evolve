@@ -1,26 +1,25 @@
 values1 = {'EXERANY2':
-    {'1': 'Yes',
-    '2': 'No',
-    '7': 'Don’t know/Not Sure',
-    '9': 'Refused'}
+    {1: 'Yes',
+    2: 'No',
+    7: 'Don’t know/Not Sure',
+    9: 'Refused'}
 }
 
 values2 = {'SLEPTIM1':
-    {'1 - 24':	'Number of hours [1-24]',
-    '77': 'Don’t know/Not Sure',
-    '99': 'Refused'}
+    {77: 'Don’t know/Not Sure',
+    99: 'Refused'}
 }
 
 values3 = {'SMOKE100':
-    {'1': 'Yes',
-     '2': 'No',
-     '7': 'Don’t know/Not Sure',
-     '9': 'Refused'}
+    {1: 'Yes',
+     2: 'No',
+     7: 'Don’t know/Not Sure',
+     9: 'Refused'}
 }
 
 values4 = {'ALCDAY4':
-    {[i for i in range(101-200)]: '1 dayper week',
-    [i for i in range(201-300)]: '2 days per week',
+    {range(101, 200): '1 day per week',
+    range(201, 300): '2 days per week',
     777: 'Don’t know/Not sure',
     888: 'No drinks in past 30 days',
     999: 'Refused'}
