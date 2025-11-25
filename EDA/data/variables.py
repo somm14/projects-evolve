@@ -3,19 +3,19 @@ import numpy as np
 values1 = {'EXERANY2':
     {1: 'Yes',
     2: 'No',
-    7: 'Don’t know/Not Sure',
+    7: 'Don’t know/Not sure',
     9: 'Refused'}
 }
 
 values2 = {'SLEPTIM1':
-    {77: 'Don’t know/Not Sure',
+    {77: 'Don’t know/Not sure',
     99: 'Refused'}
 }
 
 values3 = {'SMOKE100':
     {1: 'Yes',
      2: 'No',
-     7: 'Don’t know/Not Sure',
+     7: 'Don’t know/Not sure',
      9: 'Refused'}
 }
 
@@ -38,11 +38,12 @@ values6 = {'GENHLTH':
      3: 'Good',
      4: 'Fair',
      5: 'Poor',
-     7: 'Don’t know/Not Sure',
+     7: 'Don’t know/Not sure',
      9: 'Refused'}}
 
 values7 = {'PHYSHLTH':
-    {77: 'Don’t know/Not sure',
+    {88: None,
+     77: 'Don’t know/Not sure',
      99: 'Refused'}}
 
 values8 = {'DIABETE4':
@@ -50,7 +51,7 @@ values8 = {'DIABETE4':
      2: 'Yes, but female told only during pregnancy',
      3: 'No',
      4: 'Pre-diabetes or borderline diabetes',
-     7: 'Don’t know/Not Sure',
+     7: 'Don’t know/Not sure',
      9: 'Refused'}}
 
 values9 = {'CVDCRHD4':
