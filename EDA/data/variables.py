@@ -1,3 +1,5 @@
+import numpy as np
+
 values1 = {'EXERANY2':
     {1: 'Yes',
     2: 'No',
@@ -86,7 +88,8 @@ values13 = {'_AGEG5YR':
      10: 'Age 65 to 69',
      11: 'Age 70 to 74',
      12: 'Age 75 to 79',
-     13: 'Age 80 or older'}}
+     13: 'Age 80 or older',
+     14: np.nan}}
 
 values14 = {'INCOME3':
     {1: 'Less than $10,000',
@@ -107,7 +110,8 @@ values15 = {'_EDUCAG':
     {1: 'Did not graduate High School',
      2: 'Graduated High School',
      3: 'Attended College or Technical School',
-     4: 'Graduated from College or Technical School'}}
+     4: 'Graduated from College or Technical School',
+     9: np.nan}}
 
 values16 = {'EMPLOY1':
     {1: 'Employed for wages',
