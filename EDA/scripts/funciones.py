@@ -1,4 +1,4 @@
-
+import numpy as np
 ## FUNCIONES PARA CARGAR Y REFACTORIZAR EL DATASET ORIGINAL
 
 def ranges_expand(mapping):
