@@ -28,3 +28,38 @@ def clean_duplicated_thresh_nulls(df):
     print('\nDiferencia entre sin thresh y con thresh ->', diff)
 
     return df_copy
+
+
+def clean_nulls(df, cat_cols):
+    df_copy = df.copy()
+    nuls_prc = df_copy.isna().sum() / len(df_copy) * 100
+    for col, prc in zip(nuls_prc.index, nuls_prc):
+        try:
+            if prc >= 40:
+                print(f'\nSe elimina la variable "{col}"')
+                df_copy.drop(columns=col, inplace=True)
+            elif 2 < prc < 15:
+                if col in cat_cols:
+                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que cambiamos sus valores Desconocidos por "Unknown"')
+                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused', np.nan], 'Unknown')
+                else:
+                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que cambiamos sus valores Desconocidos por "NaN"')
+                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused'], np.nan)
+                    df_copy[col] = df_copy[col].astype(float)
+            elif 0 < prc < 1.9:
+                if col in cat_cols:
+                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que transformamos sus valores Desconocidos por la moda')
+                    df_copy[col] = df_copy[col].fillna(df_copy[col].mode()[0])
+                else:
+                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que tranformamos sus valores Desconocidos por la mediana')
+                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused'], np.nan)
+                    df_copy[col] = df_copy[col].astype(float)
+                    df_copy[col] = df_copy[col].fillna(df_copy[col].median())
+            else:
+                print(f'\nLa variable "{col}" tiene {round(prc, 2)}% de nulos por lo que no se transforma ninguno de sus valores')
+
+        except Exception as e:
+            print(e)
+            continue
+
+    return df_copy
