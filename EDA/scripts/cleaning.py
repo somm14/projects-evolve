@@ -21,7 +21,7 @@ def clean_duplicated_thresh_nulls(df):
     print('Número de registros en el DF con duplicados ->', len_con_duplicados)
     print('\nNúmero de registros en el DF sin publicados ->', len_sin_thresh)
 
-    df_copy.dropna(thresh=9, inplace=True)
+    df_copy.dropna(thresh=len(df.columns)/2, inplace=True)
     len_con_thresh = len(df_copy)
     diff = len_sin_thresh - len_con_thresh
     print('Número de registros en el DF con thresh->', len_con_thresh)
