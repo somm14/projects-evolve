@@ -29,9 +29,9 @@ def clean_duplicated_thresh_nulls(df):
 
     return df_copy
 
-def change_to_float(df, num_cols):
+def change_to_numeric(df, num_cols):
     '''
-    Función que cambia el tipo de una columna que contiene valores categóricos convirtiéndolo todo a nan.
+    Función que cambia el tipo de una columna que contiene valores categóricos convirtiéndolo a nan.
 
     Args:
     df (pd.DataFrame): DF sobre el cual aplicamos los cambios.
@@ -41,40 +41,32 @@ def change_to_float(df, num_cols):
     pd.DataFrame: DF con los cambios realizados
     '''
     df_copy = df.copy()
-    df_copy[num_cols] = df_copy[num_cols].replace(['Don’t know/Not sure', 'Refused'], np.nan)
-    df_copy[num_cols] = df_copy[num_cols].astype(float)
-    return df_copy
 
-def clean_nulls(df, cat_cols):
+    for col in num_cols:
+        df_copy[col] = pd.to_numeric(df_copy[col], errors='coerce')
+    
+    return df_copy 
+
+def change_nulls_to_categoric(df, cat_cols):
     df_copy = df.copy()
-    nuls_prc = df_copy.isna().sum() / len(df_copy) * 100
-    for col, prc in zip(nuls_prc.index, nuls_prc):
-        try:
-            if prc >= 40:
-                print(f'\nSe elimina la variable "{col}"')
-                df_copy.drop(columns=col, inplace=True)
-            elif 2 < prc < 15:
-                if col in cat_cols:
-                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que cambiamos sus valores Desconocidos por "Unknown"')
-                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused', np.nan], 'Unknown')
-                else:
-                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que cambiamos sus valores Desconocidos por "NaN"')
-                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused'], np.nan)
-                    df_copy[col] = df_copy[col].astype(float)
-            elif 0 < prc < 1.9:
-                if col in cat_cols:
-                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que transformamos sus valores Desconocidos por la moda')
-                    df_copy[col] = df_copy[col].fillna(df_copy[col].mode()[0])
-                else:
-                    print(f'\nLa variable "{col}" tiene {round(prc, 4)}% de nulos por lo que tranformamos sus valores Desconocidos por la mediana')
-                    df_copy[col] = df_copy[col].replace(['Don’t know/Not sure', 'Refused'], np.nan)
-                    df_copy[col] = df_copy[col].astype(float)
-                    df_copy[col] = df_copy[col].fillna(df_copy[col].median())
-            else:
-                print(f'\nLa variable "{col}" tiene {round(prc, 2)}% de nulos por lo que no se transforma ninguno de sus valores')
-
-        except Exception as e:
-            print(e)
-            continue
+    for col in cat_cols:
+        df_copy.loc[df_copy[col].isna(), col] = 'NULO'
 
     return df_copy
+
+def clean_completed(df, col_drop, nums, categ):
+    df.drop(columns=col_drop, inplace=True)
+    print(f'-> Columna "{col_drop}" eliminada ✅\n')
+    print('***' *10)
+    print('\n --> Procediendo a eliminar las filas duplicadas y las filas con más de la mitad de nulos\n')
+    df_drop_duplicated_rows = clean_duplicated_thresh_nulls(df)
+    print('\n Duplicados y filas eliminadas ✅\n')
+    print('***' *10)
+    print(f'\n --> Procediendo a cambiar el tipo de variable a numérica de {nums}')
+    df_to_numeric = change_to_numeric(df_drop_duplicated_rows, nums)
+    print('\n Variables cambiadas de tipo a numérica ✅\n')
+    print('***' *10)
+    print(f'\n --> Procediendo a cambiar los nulos a un valor categórico de las variables: {categ}')
+    df_clean = change_nulls_to_categoric(df_to_numeric, categ)
+    print('\n Valor NaN cambiadas de etiqueta ✅')
+    return df_clean
