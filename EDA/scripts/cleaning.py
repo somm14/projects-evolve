@@ -1,22 +1,6 @@
 import pandas as pd
 import numpy as np
 
-def porcentaje_nulos(df):
-    '''
-    Función que realizar el cálculo del porcentaje de nulos que tiene cada una de las variables de un DF.
-
-    Arg:
-    df (pd.DataFrame): DF sobre el que se quiere obtener el porcentaje
-
-    Returns:
-    pandas.Series: Retorna una serie dentro de la cual, el índice son los nombres de las variables del DF y los valores son los porcentajes de nulos
-    '''
-    df_copy = df.copy()
-    nuls_prc = round((df_copy.isna().sum() / len(df_copy) * 100), 4)
-    dict_prc = {col:prc for col, prc in zip(nuls_prc.index, nuls_prc)}
-    sr_prc = pd.Series(dict_prc)
-    return sr_prc
-
 def ordenar_cat(df, cols_cat, orden):
     '''
     Función para ordenar visualmente los valores de las variables categóricas ya que no tiene un orden con el que se pueda hacer sorted().
