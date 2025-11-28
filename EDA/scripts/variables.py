@@ -81,7 +81,7 @@ values13 = {'_AGEG5YR':
      2: 'Age 25 to 29',
      3: 'Age 30 to 34',
      4: 'Age 35 to 39',
-     5: 'Age 30 to 44',
+     5: 'Age 40 to 44',
      6: 'Age 45 to 49',
      7: 'Age 50 to 54',
      8: 'Age 55 to 59',
@@ -186,3 +186,74 @@ values18 = {'_BMI5CAT':
      2: 'Normal Weight',
      3: 'Overweight',
      4: 'Obese'}}
+
+orden_categorias = {
+    "ejercicio": [
+        "Yes", "No", "Don’t know/Not sure", "Refused"
+    ],
+
+    "asma": [
+        "Yes", "No", "Don’t know/Not sure", "Refused"
+    ],
+
+    "cancer": [
+        "Yes", "No", "Don’t know/Not sure", "Refused"
+    ],
+    
+    "genero": [
+        "Female", "Male"
+    ],
+
+    "grupo_edad": [
+        "Age 18 to 24", "Age 25 to 29", "Age 30 to 34", "Age 35 to 39",
+        "Age 40 to 44", "Age 45 to 49", "Age 50 to 54", "Age 55 to 59",
+        "Age 60 to 64", "Age 65 to 69", "Age 70 to 74", "Age 75 to 79",
+        "Age 80 or older"
+    ],
+
+    "ingresos": [
+        "Less than $10,000", "$10,000 to < $15,000", "$15,000 to < $20,000",
+        "$20,000 to < $25,000", "$25,000 to < $35,000", "$35,000 to < $50,000",
+        "$50,000 to < $75,000", "$75,000 to < $100,000", "$100,000 to < $150,000",
+        "$150,000 to < $200,000", "$200,000 or more",
+        "Don’t know/Not sure", "Refused"
+    ],
+
+    "educacion": [
+        "Did not graduate High School",
+        "Graduated High School",
+        "Attended Collage or Technical School",
+        "Graduated from College or Technical School"
+    ],
+
+    "empleo": [
+        "A student", "Unable to work", "A homemaker",
+        "Out of work for less than 1 year", "Out of work for 1 year or more",
+        "Self-employed", "Employed for wages", "Retired", "Refused"
+    ],
+
+    "IMC": ["Underweight", "Normal Weight", "Overweight", "Obese"],
+
+    "fumar": [
+        "Yes", "No", "Don’t know/Not sure", "Refused"
+    ],
+
+    "alcohol": [
+        "No drinks in the past 30 days", "1 day per week", "2 days per week",
+        "Don’t know/Not sure", "Refused"
+    ],
+
+    "salud_general": [
+        "Poor", "Fair", "Good", "Very good", "Excellent",
+        "Don’t know/Not sure", "Refused"
+    ],
+
+    "diabetes": [
+        "No", "Yes", "Yes, but female told only during pregnancy",
+        "Pre-diabetes or borderline diabetes", "Don’t know/Not sure", "Refused"
+    ],
+
+    "enf_cardio": [
+        "Yes", "No", "Don’t know/Not sure", "Refused"
+    ],
+}
