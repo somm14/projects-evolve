@@ -29,6 +29,21 @@ def clean_duplicated_thresh_nulls(df):
 
     return df_copy
 
+def change_to_float(df, num_cols):
+    '''
+    Función que cambia el tipo de una columna que contiene valores categóricos convirtiéndolo todo a nan.
+
+    Args:
+    df (pd.DataFrame): DF sobre el cual aplicamos los cambios.
+    num_cols (list): lista de las variables que queremos convertir a numérica.
+
+    Returns:
+    pd.DataFrame: DF con los cambios realizados
+    '''
+    df_copy = df.copy()
+    df_copy[num_cols] = df_copy[num_cols].replace(['Don’t know/Not sure', 'Refused'], np.nan)
+    df_copy[num_cols] = df_copy[num_cols].astype(float)
+    return df_copy
 
 def clean_nulls(df, cat_cols):
     df_copy = df.copy()
