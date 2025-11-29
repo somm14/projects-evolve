@@ -256,4 +256,8 @@ orden_categorias = {
     "enf_cardio": [
         "Yes", "No", "Don’t know/Not sure", "Refused"
     ],
+
+    "sueño_cat": [
+        "Menos de 4h", "Entre 4 y 7h", "Más de 7h"
+    ]
 }

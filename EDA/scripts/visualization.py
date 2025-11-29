@@ -56,7 +56,7 @@ def visualizacion_duplicados(df):
 
 ## VISUALIZACIÓN DE VARIABLES INDIVIDUALES (Rescatadas de utilidades del Bootcamp que realicé anteriormente adaptada a este DF)
 
-def distribución_numericas(df, columns, whisker_width=1.5, bins = None):
+def distribucion_numericas(df, columns, whisker_width=1.5, bins = None):
     '''
     Función que visualiza sobre las variables numéricas, dos tipos de gráficas: histograma + KDE y BoxPlot
 
@@ -174,5 +174,43 @@ def distribucion_categoricas(df, orden_categorias, columnas_categoricas, mostrar
     for j in range(i + 1, num_filas * 2):
         axes[j].axis("off")
 
+    plt.tight_layout()
+    plt.show()
+
+
+def distribucion_sueño(df, col, titulo=None):
+    """
+    Muestra un barplot con la distribución de la variable categórica 'sueño_cat' con un orden lógico en las categorías.
+
+    Args: 
+    df (df.DataFrame): DF del cuál se obtiene la información
+    col (srt): columna de la cual se quiere ver la distribución
+
+    Returns:
+    Gráfica de barras
+    """
+
+    # Orden lógico de categorías
+    orden_categorias = ["Menos de 4h", "Entre 4 y 7h", "Más de 7h", 'NULO']
+
+    # Convertir a categoría ordenada (respeta NaN)
+    df[col] = pd.Categorical(df[col], categories=orden_categorias, ordered=True)
+
+    # Frecuencias
+    counts = df[col].value_counts(dropna=False).sort_index()
+
+    plt.figure(figsize=(8, 5))
+    ax = sns.barplot(x=counts.index.astype(str), y=counts.values, palette='viridis', hue=counts.index.astype(str), legend=False)
+
+    # Agregar valores encima
+    for i, v in enumerate(counts.values):
+        ax.text(i, v + (0.02 * max(counts.values)),
+                str(v), ha='center', va='bottom',
+                fontsize=10, color="#555555", fontweight="bold")
+
+    plt.title(titulo if titulo else f"Distribución de {col}", fontsize=14)
+    plt.xlabel(col)
+    plt.ylabel("Frecuencia")
+    plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
