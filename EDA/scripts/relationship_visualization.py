@@ -136,18 +136,14 @@ def boxplot_trivariante(df, col1, col2, hue, orden_dict):
         hue=hue
     )
 
-    # 2. Mover la leyenda afuera de la gráfica
     plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', title=hue, borderaxespad=0)
 
-    # 3. Rotar etiquetas de abajo si se solapan
     plt.xticks(rotation=45)
 
-    # 4. Título y etiquetas claras
     plt.title(f"Relación entre {col1}, {col2} y {hue}")
     plt.xlabel(f" {col1}")
     plt.ylabel(f"Frecuencia {col2}")
 
-    # 5. Ajuste final IMPORTANTE (con paréntesis)
     plt.tight_layout()
 
     plt.show()
@@ -241,5 +237,5 @@ def map_relationship(df, col2, col_estado='estado'):
         )
     ).add_to(m)
 
-    folium.LayerControl().add_to(m) # Añade control de capas para activar/desactivar
+    folium.LayerControl().add_to(m) 
     return m

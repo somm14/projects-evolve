@@ -132,12 +132,11 @@ def distribucion_categoricas(df, orden_categorias, columnas_categoricas, mostrar
 
             serie = serie.reindex(categorias_ordenadas)
 
-        # Gráfica
         if col == 'estado':  # HORIZONTAL
             sns.barplot(x=serie, y=serie.index, ax=ax, palette="Blues_d", hue = serie.index, legend = False)
             ax.set_xlabel("Frecuencia Relativa")
             ax.set_ylabel("")
-        else:  # VERTICAL
+        else: 
             sns.barplot(x=serie.index, y=serie, ax=ax, palette="Blues_d", hue = serie.index, legend = False)
             ax.set_ylabel("Frecuencia Relativa")
             ax.tick_params(axis="x", rotation=90)
@@ -190,19 +189,15 @@ def distribucion_sueño(df, col, titulo=None):
     Gráfica de barras
     """
 
-    # Orden lógico de categorías
     orden_categorias = ["Menos de 4h", "Entre 4 y 7h", "Más de 7h", 'NULO']
 
-    # Convertir a categoría ordenada (respeta NaN)
     df[col] = pd.Categorical(df[col], categories=orden_categorias, ordered=True)
 
-    # Frecuencias
     counts = df[col].value_counts(dropna=False).sort_index()
 
     plt.figure(figsize=(8, 5))
     ax = sns.barplot(x=counts.index.astype(str), y=counts.values, palette='viridis', hue=counts.index.astype(str), legend=False)
 
-    # Agregar valores encima
     for i, v in enumerate(counts.values):
         ax.text(i, v + (0.02 * max(counts.values)),
                 str(v), ha='center', va='bottom',
