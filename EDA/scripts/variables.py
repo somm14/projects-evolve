@@ -222,7 +222,7 @@ orden_categorias = {
     "educacion": [
         "Did not graduate High School",
         "Graduated High School",
-        "Attended Collage or Technical School",
+        "Attended College or Technical School",
         "Graduated from College or Technical School"
     ],
 
@@ -239,7 +239,7 @@ orden_categorias = {
     ],
 
     "alcohol": [
-        "No drinks in the past 30 days", "1 day per week", "2 days per week",
+        "No drinks in past 30 days", "1 day per week", "2 days per week",
         "Don’t know/Not sure", "Refused"
     ],
 
