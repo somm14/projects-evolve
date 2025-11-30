@@ -1,5 +1,7 @@
+import folium
 import matplotlib.pyplot as plt
 import pandas as pd
+import requests
 import seaborn as sns
 
 
@@ -174,7 +176,6 @@ def heatmap_trivariante(df, col_filas, col_columnas, col_valores, diccionario_or
 
     if col_filas in diccionario_orden:
         orden_deseado = diccionario_orden[col_filas]
-        # Filtramos para quedarnos solo con las categorías que existen en los datos actuales
         orden_valido = [x for x in orden_deseado if x in tabla.index]
         tabla = tabla.reindex(orden_valido)
 
@@ -199,3 +200,46 @@ def heatmap_trivariante(df, col_filas, col_columnas, col_valores, diccionario_or
     plt.yticks(rotation=0, ha='right')
     plt.tight_layout() 
     plt.show()
+
+## VISUALIZACIÓN DEL MAPA DE EEUU
+
+def map_relationship(df, col2, col_estado='estado'):
+    if df[col2].dtypes ==  object:
+        df_estado = df.groupby(col_estado)[col2].count().reset_index()
+    if df[col2].dtypes == float:
+        df_estado = df.groupby(col_estado)[col2].median().reset_index()
+
+    url_geojson = "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json"
+    response = requests.get(url_geojson)
+    geo_json_data = response.json()
+
+    m = folium.Map(location=[37.8, -96], zoom_start=4)
+
+    clave_json = 'feature.properties.name' 
+
+    folium.Choropleth(
+        geo_data=geo_json_data,
+        name='choropleth',
+        data=df_estado,
+        columns=[col_estado, col2],
+        key_on=clave_json,          
+        fill_color='YlOrRd',
+        fill_opacity=0.8,
+        line_opacity=0.2,
+        legend_name=f'{col2}'
+    ).add_to(m)
+
+   
+    folium.GeoJson(
+        geo_json_data,
+        name='Estados',
+        style_function=lambda x: {'fillColor': 'transparent', 'color': 'black', 'weight': 0.5},
+        tooltip=folium.GeoJsonTooltip(
+            fields=['name'],
+            aliases=['Estado:'],
+            localize=True
+        )
+    ).add_to(m)
+
+    folium.LayerControl().add_to(m) # Añade control de capas para activar/desactivar
+    return m
