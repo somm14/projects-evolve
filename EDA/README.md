@@ -23,12 +23,26 @@ Este proyecto forma parte de la evaluación del máster y tiene como objetivo pr
 - Documentar el proceso de forma clara y ordenada.
 
 ## 📁 **Estructura del repositorio**
-├── data/
-│   ├── LLCP2022.XPT           # Archivo original
-│   └── *BRFSS_2022_clean.csv         # (Se añadirá tras la limpieza)*
-├── notebooks/
-│   └── eda.ipynb         # Notebook principal del proyecto
-├── README.md
+├── data/  
+│   ├── LLCP2022.XPT               # Archivo original  
+│   ├── USCODE22_LLCP_102523.HTML  # Archivo donde se encuentra la información de las variables codificadas  
+│   ├── data_clean.csv             # Dataset limpio  
+│   ├── data_rename.csv            # Dataset descodificada y los nombres de las columnas cambiadas  
+│   └── mapped_data.csv            # Dataset mapeado  
+├── notebooks/  
+│   ├── 00_Introduccion_y_estrategia.ipynb  
+│   ├── 01_Mapeo_descodificacion.ipynb  
+│   ├── 02_Primer_analisis_descriptivo.ipynb  
+│   ├── 03_Limpieza_y_preparacion.ipynb  
+│   ├── 04_Visualizaciones_y_analisis.ipynb  
+│   └── 05_Conclusiones.ipynb  
+├── scripts  
+│   ├── cleaning.py  
+│   ├── individual_visualization.py  
+│   ├── mapping.py  
+│   ├── relationship_visualization.py  
+│   └── variables.py  
+├── README.md  
 └── requirements.txt                 
 
 ## 📦 **Dataset utilizado**
@@ -45,27 +59,60 @@ El dataset original cuenta con cientos de variables; para este proyecto se ha re
 
 ## 🛠 **Proceso de trabajo**
 
-(Esta sección se completará tras terminar el EDA.)
+### Carga de datos:
+Se realizó un mapeo y una descodificación de los datos ya que su origen eran de tipo numérico.
 
-Carga de datos:
-(Añadir breve descripción.)
+### Exploración inicial:
+Se visualizó cada una de las variables seleccionadas para analizar con más profundidad la distribución y, así, tomar decisiones correctas ante la limpieza.
 
-Exploración inicial:
-(Añadir principales observaciones.)
-
-Limpieza de datos:
-(Indicar decisiones tomadas.)
-
-Visualizaciones básicas:
-(Describir gráficos creados.)
-
-## 🧾 **Resultados preliminares**
-
-(A completar una vez terminado el análisis.)
+### Limpieza de datos:
+- Se eliminó aquella columna con un porcentaje de nulos mayor del 90% por falta de información.
+- Se categorizaron algunos valores pertinentes y se convirtió otras a tipo numérico.
+- Se decidió no imputar valores nulos para no perder información o sesgarla.
+  
+### Visualizaciones básicas:
+- Se utilizó **gráficas de barras** para analizar variables categóricas
+- Se hizo uso de **BoxPlot** para realizacionar variables numéricas con categóricas.
+- **Heatmap** para realizar análisis trivariante.
+- Librería `folium` para visualizar los diferentes estados de EEUU.
 
 ## 🧠 **Conclusiones**
+1. Hábitos de vida
+- **Ejercicio** -> Es el factor más protector del estudio. Una persona diabética activa tiene menos días de mala salud que una persona sana sedentaria.
 
-(A completar.)
+- **Sedentarismo + Enfermedad** (especialmente Diabetes) -> La peor combinación posible.
+
+- **Tabaco** ->  El hábito más dañino: afecta más a la salud mental que el propio cáncer. Fumar duplica los días de malestar mental.
+
+- **Alcohol** -> Los abstemios muestran peor salud debido a la "paradoja del abstemio enfermo" (muchos dejan de beber por enfermedad). El mejor perfil es el consumo moderado, aunque ¿realmente es mejor a largo plazo?
+
+2. Factores biológicos
+
+- **IMC** -> Es uno de los predictores más fuertes en diabetes, asma y enfermedades cardiovasculares.
+
+- **Cáncer** -> No muestra una relación clara con el IMC en esta muestra.
+
+3. Salud mental
+
+- Enfermedades como diabetes y cardiopatías duplican los días de mala salud mental.
+
+- Cáncer no empeora significativamente la salud mental (indica resiliencia).
+
+- El peor perfil mental corresponde a personas con síntomas o diagnósticos inciertos (“NS/NC”).
+
+4. Condición socioeconómica
+
+- **Ingresos y educación** funcionan como factores protectores.
+
+- Estar “incapacitado de trabajar” es el mayor predictor individual de mala salud.
+
+- Los mayores de 65 años presentan mejor salud mental que los jóvenes.
+
+5. Geografía
+
+- El Sur y la región de los Apalaches concentran los peores indicadores de salud física y mental.
+
+- Estas zonas coinciden con menores recursos, reforzando el vínculo entre territorio, economía y salud.
 
 ## 👩‍💻 **Autoría**
 
