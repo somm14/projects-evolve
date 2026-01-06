@@ -10,7 +10,7 @@ El objetivo de este repositorio es mostrar mi evolución técnica a lo largo del
 
 Cada carpeta corresponde al trabajo final de un módulo:
 
-* **Módulo 1 — Fundamentos de Programación y Python**
+* **Módulo 1 — Fundamentos de Programación y Python**  
   Proyecto: *Análisis Exploratorio de Datos (EDA)*
   Estado: 🟡 En curso
   En este proyecto realizo un primer análisis exploratorio aplicando Python, pandas, limpieza, visualización y buenas prácticas de estructuración de notebooks. Este análisis me permite formular preguntas sobre el dataset, revisar su calidad, entender distribuciones y detectar posibles patrones.
