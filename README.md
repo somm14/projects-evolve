@@ -12,7 +12,8 @@ Cada carpeta corresponde al trabajo final de un módulo:
 
 * **Módulo 1 — Fundamentos de Programación y Python**  
   Proyecto: *Análisis Exploratorio de Datos (EDA)*  
-  Estado: 🟡 En curso  
+  Estado: 🟢​ Finalizado
+  
   En este proyecto realizo un primer análisis exploratorio aplicando Python, pandas, limpieza, visualización y buenas prácticas de estructuración de notebooks. Este análisis me permite formular preguntas sobre el dataset, revisar su calidad, entender distribuciones y detectar posibles patrones.
 
   Dentro de la carpeta del módulo habrá un README específico explicando en detalle:
@@ -21,6 +22,21 @@ Cada carpeta corresponde al trabajo final de un módulo:
   * Dataset utilizado
   * Proceso seguido
   * Conclusiones y próximos pasos
+ 
+* **Módulo 2 — Bases de Datos y SQL**  
+  Proyecto: *Diseño de Base de Datos Relacional y Análisis Exploratorio en SQL*  
+  Estado: ​🟡​ En proceso  
+
+  En este proyecto se diseña e implementa una base de datos relacional a partir de un dataset real sobre la adaptabilidad de los estudiantes a la educación online.  
+  Se ha trabajado con un modelo dimensional (tabla de hechos y tablas de dimensiones), aplicando normalización, integridad referencial y buenas prácticas de SQL.
+
+  El proyecto incluye:
+  * Diseño del esquema relacional (fact table y dimensiones)
+  * Carga y limpieza de datos desde CSV
+  * Creación de dimensiones sintéticas (calendario y localización)
+  * Análisis Exploratorio de Datos (EDA) completamente en SQL
+  * Uso de JOINs, CTEs, funciones ventana, vistas y funciones SQL
+  * Extracción de métricas e insights orientados a la toma de decisiones
 
 *(El resto de módulos y proyectos se añadirán conforme avance en el máster.)*
 
@@ -37,8 +53,11 @@ Cada carpeta corresponde al trabajo final de un módulo:
 ## 🛠️ Tecnologías y herramientas utilizadas
 
 * Python (pandas, numpy, matplotlib, seaborn, etc.)
+* SQL (MySQL)
+* MySQL Workbench
+* Diseño de bases de datos relacionales
 * Git & GitHub
-* Jupyter Notebooks
+* Jupyter Notebooks, WorkBench
 * Herramientas y librerías específicas según módulo
 
 ---
