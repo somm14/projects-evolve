@@ -311,7 +311,7 @@ JOIN dim_student ds ON f.student_id = ds.student_id
 GROUP BY age_range;
 
 SELECT *
-FROM DistripucionPorEdad
+FROM distripucion_por_edad
 ORDER BY total_registros DESC;
 
 /*
@@ -853,6 +853,7 @@ A continuación, para poder realizar un filtrado más avanzado definiendo variab
 creada anteriormente.
 */
  
+DROP FUNCTION IF EXISTS fn_adaptability;
 DELIMITER $$
 
 CREATE FUNCTION fn_adaptability (
