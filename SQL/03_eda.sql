@@ -941,35 +941,3 @@ no urbanos.
 Este enfoque confirma que la adaptabilidad a la educación online responde a una acumulación de ventajas o desventajas, más que a un 
 único elemento aislado.
 */
- 
- 
- 
- 
-/*
-PRÓXIMOS PASOS:
-	
-
-PUNTOS IMPORTANTES DEL ANÁLISIS:
-	- El tipo de institución es un factor relevante en la adaptabilidad a la educación online, observándose mejores resultados 
-	en instituciones no gubernamentales frente a las gubernamentales. 
-    - El análisis de la adaptabilidad a la educación online según la condición financiera muestra una relación directa entre los recursos 
-	económicos y el nivel de adaptación
-    - Análisis de la adaptabilidad con load shedding tienen una relación con tendencia negativa. Mas cortes de luz, menos adaptabilidad, reforzando
-    los análisis previos de condición financiera e insitutición y muestra que la brecha digital no es solo tecnológica, sino infraestructural.
-    - Análisis de adaptabilidad con el tipo de dispositivo usado: condición financiera → quién puede acceder a un ordenador
-	load shedding → estabilidad para usar dispositivos
-	tipo de institución → infraestructura disponible
-    - Análisis de adaptabilidad con el tipo de acceso a internet: 
-		el impacto del tipo de dispositivo (móvil + datos = doble limitación)
-		la condición financiera
-		la infraestructura tecnológica del entorno
-	- La adaptabilidad no depende solo del estudiante, sino del ecosistema educativo en el que se desarrolla
-    
-INFO IMPORTANTE:
-	- Poner en el README que hay que importar el csv en la base de datos para que se pueda ejecutar las tablas. (poner pasos que hay que
-    seguir)
-    
-PARA LA PRESENTACIÓN:
-	- Vistas creadas en distribución por edad y en adaptabilidad por edad: La distribución porcentual por rango de edad se calcula 
-    mediante funciones ventana, mientras que los niveles de adaptabilidad se obtienen mediante agregaciones condicionales.
-*/
