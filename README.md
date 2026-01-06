@@ -24,7 +24,7 @@ Cada carpeta corresponde al trabajo final de un módulo:
   * Conclusiones y próximos pasos
  
 * **Módulo 2 — Bases de Datos y SQL**  
-  Proyecto: *Diseño de Base de Datos Relacional y Análisis Exploratorio en SQL*  
+  Proyecto: *[Diseño de Base de Datos Relacional y Análisis Exploratorio en SQL](SQL)*  
   Estado: ​🟡​ En proceso  
 
   En este proyecto se diseña e implementa una base de datos relacional a partir de un dataset real sobre la adaptabilidad de los estudiantes a la educación online.  
