@@ -1,10 +1,13 @@
 USE online_education;
 
--- Se insertan los datos procedentes del archivo en crudo "students_adaptability_level_online_education.csv"
+-- Se insertan los datos procedentes del archivo en crudo 
+-- "students_adaptability_level_online_education.csv"
 
 /* -------------------------------------------
 Insertar datos en la tabla DIM_STUDENT 
 ------------------------------------------- */
+
+SELECT * FROM students_adaptability_level_online_education LIMIT 10;
 
 INSERT INTO dim_student (gender, age_range, education_level)
 SELECT DISTINCT
@@ -44,6 +47,8 @@ VALUES
     ('Urban'),
     ('Semi-Urban'),
     ('Rural');
+    
+SELECT * FROM dim_localization;
 
 /* -------------------------------------------
 Insertar datos en la tabla DIM_SOCIO-ECONOMIC
@@ -53,18 +58,18 @@ INSERT INTO dim_socio_economic (financial_condition, load_shedding, location)
 SELECT DISTINCT
     `Financial Condition`,
     `Load-Shedding`,
-    Location
+     Location
 FROM students_adaptability_level_online_education;
 
--- Asigno localizaciones sintéticas distribuyéndolo de forma controlada, es decir, si es urbano lo relaciono con mejor infraestructura,
--- si es rural, más problemas.
+-- Asigno localizaciones sintéticas distribuyéndolo de forma controlada, es decir, 
+-- si es urbano lo relaciono con mejor infraestructura, si es rural, más problemas.
 
 UPDATE dim_socio_economic
 SET localization_id = 
 	CASE
-		WHEN load_shedding = 'High' THEN 1   									 -- Urban
+		WHEN load_shedding = 'High' THEN 3   							  -- Rural
 		WHEN load_shedding = 'Low' AND financial_condition = 'Mid' THEN 2 -- Semi-Urban
-		ELSE 3                            									 -- Rural
+		ELSE 1                            								  -- Urban
 	END
 WHERE localization_id IS NULL;
 
@@ -86,7 +91,11 @@ FROM
      UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) c,
      (SELECT 0 n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
      UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) d;
-     
+	
+-- Se utiliza UNION ALL para generar tablas auxiliares con valores del 0 al 9, 
+-- que al combinarse mediante producto cartesiano permiten construir una secuencia numérica 
+-- completa sin necesidad de bucles, facilitando la generación de datos sintéticos. 
+
 select * from numbers order by n desc;
 
 INSERT INTO dim_calendar (calendar_id, full_date, year, month, quarter, day_of_week)
@@ -151,6 +160,6 @@ JOIN dim_socio_economic s
 ON f.socio_id = s.socio_id
 SET f.localization_id = s.localization_id;
 
-SELECT * FROM fact_adaptability;
+SELECT * FROM fact_adaptability order by fact_id;
 
 USE online_education;
