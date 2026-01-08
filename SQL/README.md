@@ -30,8 +30,9 @@ El proyecto está pensado para demostrar competencias en:
 |    └── students_adaptability_level_online_education  --> Dataset en crudo (importado manualmente)  
 ├── 01_schema.sql                 --> Creación del esquema y tablas  
 ├── 02_data.sql                   --> Inserción y transformación de datos  
-├── 03_eda.sql                    --> Consultas SQL y realización del EDA    
-└── 04_model.png                 --> Modelo relacional de la base de datos
+├── 03_eda.sql                    --> Consultas SQL y realización del EDA 
+├── 04_model.png                 --> Modelo relacional de la base de datos
+└── Presentación.pdf            --> Slides de presentación
 
 
 ## **Flujo de trabajo (paso a paso)**  
@@ -121,3 +122,4 @@ El análisis permite identificar:
 ## 👩‍💻 **Autoría**
 
 Proyecto realizado por *Soraya Malpica Montes* como parte de la formación y portfolio en **Data Science & IA**, con especial énfasis en **SQL y análisis exploratorio**.
+
