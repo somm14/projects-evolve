@@ -37,7 +37,7 @@ Se ha trabajado con un modelo dimensional (tabla de hechos y tablas de dimension
   * Uso de JOINs, CTEs, funciones ventana, vistas y funciones SQL
   * Extracción de métricas e insights orientados a la toma de decisiones
 ------
- * **Módulo 3 — Estadística para Data Science**  
+ - **Módulo 3 — Estadística para Data Science**  
   Proyecto: *[Ejercicio Estadística. Proyecto final](Estadistica)*  
   Estado: 🟢​ Finalizado  
 
@@ -51,7 +51,20 @@ En este proyecto aplico técnicas de análisis estadístico, inferencia y modela
   * Interpretación de modelos predictivos
   * Implementación matemática de algoritmos
   * Análisis de series temporales
+------
+ - **Módulo 4 — Machine Learning & Estrategia de Negocio**  
+  Proyecto: *[Predicción de Tasa de Recompra de Clientes](Machine-Learning)*  
+  Estado: 🟢​ Finalizado  
 
+Desarrollo de un modelo predictivo para identificar la probabilidad de recompra basado en métricas **RFM**. El proyecto destaca por el uso de **Optuna** para la optimización de hiperparámetros y **DALEX** para la explicabilidad del modelo. Se logró un AUC del 0.81, definiendo estrategias de negocio claras: reactivación antes de los 120 días y segmentación VIP para clientes con alta recurrencia.
+
+  Este proyecto consolida conceptos clave de:
+
+  * Ingeniería de Variables RFM
+  * Optimización Bayesiana (Optuna)
+  * Ajuste de Umbral de Decisión (Threshold Tuning)
+  * Inteligencia Artificial Explicable (XAI)
+  * Data-Driven Business Strategy
 
 ##### *(El resto de módulos y proyectos se añadirán conforme avance en el máster.)*
 ---
@@ -63,13 +76,11 @@ En este proyecto aplico técnicas de análisis estadístico, inferencia y modela
 
 ## 🛠️ Tecnologías y herramientas utilizadas
 
-* Python (pandas, numpy, matplotlib, seaborn, etc.)
-* SQL (MySQL)
-* MySQL Workbench
-* Diseño de bases de datos relacionales
-* Scikit-learn
-* Git & GitHub
-* Jupyter Notebooks, WorkBench
+* **Lenguajes**: Python (pandas, numpy, matplotlib, seaborn, etc.), SQL (MySQL)
+* **Machine Learning**: Scikit-learn, LightGBM, Random Forest, XGBoost, Optuna (Hyperparameter Tuning).
+* **Explicabilidad**: DALEX
+* **Bases de datos**: MySQL Workbench, diseño de bases de datos relacionales
+* **Entornos**: Git & GitHub, Jupyter Notebooks, WorkBench
 * Herramientas y librerías específicas según módulo
 
 ## 📬 Contacto
