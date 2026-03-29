@@ -50,7 +50,7 @@ Los datos fueron proporcionados por el profesor encargado del módulo de Machine
      - Variables derivadas: Media de días entre pedidos, tasa de cancelación, etc.
 
 ## **Resultados del Modelo**
-Se compararon tres algoritmos: **Logistic Regression** (como baseline), **Random Forest** y **LightGBM**. La optimización de hiperparámetros se realizó mediante Optuna.
+Se compararon tres algoritmos: **Logistic Regression** (como baseline), **Random Forest**, **XGBoost** y **LightGBM**. La optimización de hiperparámetros se realizó mediante Optuna.
 
 Tras la optimización se consiguió un AUC en el conjunto de test de un 0.81 con el modelo **LightGBM**.
 
